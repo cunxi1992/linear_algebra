@@ -25,7 +25,7 @@ class Line(object):
         self.dimension = 2
         if not normal_vector:
             all_zeros = ['0'] * self.dimension # 初始化一个list ['0','0']，函数里面用了 Decimal 处理 就可以用 ['0']，这个会把字符串转换成10进制的数
-            normal_vector = Vector(all_zeros) 
+            normal_vector = Vector(all_zeros)
         self.normal_vector = normal_vector
 
         if not constant_term:
@@ -35,7 +35,7 @@ class Line(object):
         self.set_basepoint()
 
     # 求ax+by=c的基准点:
-    # 假设x=0 => (0,c/b); y轴上的一个点 
+    # 假设x=0 => (0,c/b); y轴上的一个点
     # 假设y=0 => (c/a,0); x轴上的一个点
     def set_basepoint(self):
         try:
@@ -145,6 +145,8 @@ class Line(object):
 
 
 class MyDecimal(Decimal):
+
+    # 检测某个数字是否在误差范围0内
     def is_near_zero(self, eps=1e-10):
         return abs(self) < eps
 
